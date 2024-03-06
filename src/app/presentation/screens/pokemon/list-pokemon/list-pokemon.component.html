@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="pokemon-all" id="listPokemon">
+    <div class="pokemon" *ngFor="let pokemon of pokemonList">
+      <p class="pokemon-id-back">#{{ formatPokemonId(pokemon.id) }}</p>
+      <div class="pokemon-img">
+        <img
+          [src]="pokemon.sprites.other?.['official-artwork']?.front_default"
+          [alt]="pokemon.name"
+        />
+      </div>
+      <div class="pokemon-info">
+        <div class="name-container">
+          <p class="pokemon-id">#{{ formatPokemonId(pokemon.id) }}</p>
+          <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+        </div>
+        <div class="pokemon-type">
+          <ng-container *ngFor="let type of pokemon.types">
+            <p [class]="type.type.name + ' type'">{{ type.type.name }}</p>
+          </ng-container>
+        </div>
+        <div class="pokemon-stats">
+          <p class="stat">{{pokemon.height}}m</p>
+          <p class="stat">{{pokemon.weight}}kg</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
